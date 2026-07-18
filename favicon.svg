@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- braided delta channels feeding a jade lake -->
+  <path d="M7 3 Q11 9 10 13 M13 3 Q12 9 14 13 M19 3 Q20 9 18 13 M25 3 Q22 9 22 13" fill="none" stroke="#6f4526" stroke-width="1.6" stroke-linecap="round"/>
+  <path d="M4 18 Q16 13.5 28 18 L28 25 Q16 29.5 4 25 Z" fill="#3d8b76"/>
+  <path d="M8 20.5 H17 M14 23 H24" stroke="#f6f2e8" stroke-width="1.2" stroke-linecap="round" opacity="0.55"/>
+</svg>
