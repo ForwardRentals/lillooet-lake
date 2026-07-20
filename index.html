@@ -111,41 +111,39 @@
 </script>
 <style>
   :root {
-    --paper: #f6f2e8;
-    --paper-deep: #ede7d8;
-    --ink: #21201a;
-    --ink-soft: #46443b;
-    --ink-mute: #7d7768;
-    --rule: #d5cdba;
-    /* Lillooet palette — jade water, glacial silt grey, warm cedar */
-    --jade: #3d8b76;
-    --jade-deep: #29655a;
-    --silt: #a3ada3;
-    --cedar: #955e35;
-    --cedar-deep: #6f4526;
+    --bg: #fbfaf7;
+    --surface: #ffffff;
+    --sage: #eef1ea;
+    --line: #e3e1d8;
+    --ink: #22261f;
+    --ink-soft: #4c5245;
+    --mute: #8b9083;
+    --pine: #3d5a3f;
+    --pine-deep: #2c4230;
+    --sun: #c98f2d;
   }
   * { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
   html, body {
     margin: 0; padding: 0;
-    background: var(--paper); color: var(--ink);
+    background: var(--bg); color: var(--ink);
     font-family: "Inter", system-ui, -apple-system, sans-serif;
     font-size: 17.5px; line-height: 1.7;
     -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
   }
-  ::selection { background: var(--jade-deep); color: var(--paper); }
+  ::selection { background: var(--pine); color: #fff; }
 
-  a { color: inherit; text-decoration: none; border-bottom: 1px solid var(--rule); transition: border-color 0.2s, color 0.2s; }
-  a:hover { border-bottom-color: var(--jade-deep); color: var(--jade-deep); }
+  a { color: inherit; text-decoration: none; border-bottom: 1px solid var(--line); transition: border-color 0.2s, color 0.2s; }
+  a:hover { border-bottom-color: var(--pine); color: var(--pine); }
 
   h1, h2, h3, h4 {
     font-family: "Fraunces", "Times New Roman", serif; color: var(--ink);
-    font-weight: 380; line-height: 1.05; letter-spacing: -0.022em; margin: 0;
-    font-variation-settings: "opsz" 144, "SOFT" 30;
+    font-weight: 500; line-height: 1.05; letter-spacing: -0.022em; margin: 0;
+    font-variation-settings: "opsz" 144;
   }
   h1 { font-size: clamp(2.9rem, 8vw, 6.1rem); }
   h2 { font-size: clamp(1.95rem, 4.4vw, 3.1rem); }
-  h3 { font-size: 1.45rem; font-weight: 480; line-height: 1.22; }
+  h3 { font-size: 1.45rem; font-weight: 600; line-height: 1.22; }
   em { font-style: italic; }
 
   p { margin: 0 0 1.15rem; color: var(--ink-soft); font-size: 1.07rem; line-height: 1.72; }
@@ -155,25 +153,27 @@
 
   .eyebrow {
     font-family: "Inter", sans-serif; font-size: 0.7rem; letter-spacing: 0.24em;
-    text-transform: uppercase; font-weight: 600; color: var(--cedar);
-    display: inline-flex; align-items: center; gap: 0.75rem;
+    text-transform: uppercase; font-weight: 600; color: var(--pine);
+    display: inline-flex; align-items: center; gap: 0.7rem;
   }
-  .eyebrow::after { content: ""; width: 34px; height: 1px; background: var(--cedar); opacity: 0.6; }
+  .eyebrow::before { content: ""; width: 24px; height: 2px; background: var(--sun); border-radius: 2px; }
 
   /* ============ NAV ============ */
-  nav.top { position: sticky; top: 0; z-index: 60; background: rgba(246,242,232,0.86); backdrop-filter: blur(9px); -webkit-backdrop-filter: blur(9px); border-bottom: 1px solid var(--rule); }
+  nav.top { position: sticky; top: 0; z-index: 60; background: rgba(251,250,247,0.9); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
   nav.top .inner { max-width: 1150px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 1rem 2rem; }
-  .wordmark { display: flex; align-items: center; gap: 0.7rem; font-family: "Fraunces", serif; font-size: 1.06rem; font-weight: 480; border: none; }
+  .wordmark { display: flex; align-items: center; gap: 0.75rem; font-family: "Fraunces", serif; font-size: 1.06rem; font-weight: 600; border: none; }
   .wordmark:hover { color: var(--ink); }
-  .wordmark svg { flex: none; color: var(--jade-deep); }
-  .wordmark small { display: block; font-family: "Inter", sans-serif; font-weight: 500; font-size: 0.6rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--ink-mute); margin-top: 0.18rem; }
+  .wordmark .peak { width: 38px; height: 38px; background: var(--pine); border-radius: 50%; display: grid; place-items: center; flex: none; }
+  .wordmark .peak svg { width: 22px; height: 22px; }
+  .wordmark .peak path { stroke: #fff; stroke-width: 2.2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+  .wordmark small { display: block; font-family: "Inter", sans-serif; font-weight: 500; font-size: 0.6rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--mute); margin-top: 0.18rem; }
   nav.top .navlinks { display: flex; gap: 1.9rem; }
   nav.top .navlinks a { border: none; font-size: 0.76rem; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 500; color: var(--ink-soft); }
-  nav.top .navlinks a:hover { color: var(--jade-deep); }
+  nav.top .navlinks a:hover { color: var(--pine-deep); }
   @media (max-width: 760px) { nav.top .navlinks { display: none; } }
 
   /* ============ HERO — full-width flat-layered delta scene first ============ */
-  .hero-art { line-height: 0; border-bottom: 1px solid var(--rule); background: var(--paper-deep); }
+  .hero-art { line-height: 0; border-bottom: 1px solid var(--line); background: var(--sage); }
   .hero-art svg { width: 100%; height: auto; display: block; }
 
   header.masthead { padding: 4.5rem 0 5rem; }
@@ -181,7 +181,7 @@
   @media (max-width: 880px) { .masthead-grid { grid-template-columns: 1fr; gap: 2.75rem; } }
   header.masthead .eyebrow { margin-bottom: 2.25rem; }
   header.masthead h1 { margin-bottom: 1.9rem; max-width: 12ch; }
-  header.masthead h1 em { color: var(--jade-deep); }
+  header.masthead h1 em { color: var(--pine-deep); }
   .deck {
     font-family: "Fraunces", serif; font-style: italic; font-weight: 380;
     font-size: clamp(1.18rem, 1.9vw, 1.5rem); line-height: 1.52; color: var(--ink); max-width: 52ch;
@@ -189,20 +189,21 @@
 
   /* Spec card — sidebar log header instead of a top ribbon */
   .spec {
-    border: 1px solid var(--rule); background: var(--paper-deep); border-radius: 3px;
+    border: 1px solid var(--line); background: var(--surface); border-radius: 14px;
+    box-shadow: 0 1px 3px rgba(34,38,31,0.06);
     padding: 1.75rem 1.75rem 1.35rem; font-size: 0.9rem;
   }
-  .spec .spec-title { font-family: "Fraunces", serif; font-style: italic; font-size: 1.02rem; color: var(--jade-deep); margin-bottom: 1.1rem; }
+  .spec .spec-title { font-family: "Fraunces", serif; font-style: italic; font-size: 1.02rem; color: var(--pine-deep); margin-bottom: 1.1rem; }
   .spec dl { margin: 0; }
-  .spec .row { display: flex; justify-content: space-between; gap: 1rem; padding: 0.55rem 0; border-top: 1px solid var(--rule); }
-  .spec dt { font-size: 0.66rem; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 600; color: var(--ink-mute); }
+  .spec .row { display: flex; justify-content: space-between; gap: 1rem; padding: 0.55rem 0; border-top: 1px solid var(--line); }
+  .spec dt { font-size: 0.66rem; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 600; color: var(--mute); }
   .spec dd { margin: 0; font-family: "Fraunces", serif; font-size: 0.95rem; color: var(--ink); text-align: right; }
-  .spec .vol { margin-top: 1.2rem; padding-top: 0.9rem; border-top: 1px solid var(--rule); font-size: 0.64rem; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 600; color: var(--ink-mute); display: flex; justify-content: space-between; }
+  .spec .vol { margin-top: 1.2rem; padding-top: 0.9rem; border-top: 1px solid var(--line); font-size: 0.64rem; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 600; color: var(--mute); display: flex; justify-content: space-between; }
 
   /* ============ SECTIONS ============ */
   section { padding: 6.25rem 0; }
   section.tight { padding: 4.25rem 0; }
-  .rule { height: 1px; background: var(--rule); border: 0; margin: 0; }
+  .rule { height: 1px; background: var(--line); border: 0; margin: 0; }
   .head { margin-bottom: 3.25rem; }
   .head .eyebrow { margin-bottom: 1.35rem; }
   .head h2 { max-width: 20ch; }
@@ -211,51 +212,51 @@
   /* ============ ROAD ESSAY ============ */
   .essay p:first-of-type::first-letter {
     font-family: "Fraunces", serif; font-weight: 340; font-size: 4.7rem; line-height: 0.82;
-    float: left; padding: 0.45rem 0.75rem 0 0; color: var(--cedar);
+    float: left; padding: 0.45rem 0.75rem 0 0; color: var(--sun);
   }
   blockquote.pull {
-    margin: 3rem 0; padding: 1.9rem 0 1.9rem 2rem; border-left: 3px solid var(--jade);
+    margin: 3rem 0; padding: 1.9rem 0 1.9rem 2rem; border-left: 3px solid var(--pine);
     font-family: "Fraunces", serif; font-style: italic; font-weight: 340;
     font-size: 1.4rem; line-height: 1.5; color: var(--ink);
   }
-  blockquote.pull cite { display: block; margin-top: 0.9rem; font-style: normal; font-family: "Inter", sans-serif; font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-mute); font-weight: 600; }
+  blockquote.pull cite { display: block; margin-top: 0.9rem; font-style: normal; font-family: "Inter", sans-serif; font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--mute); font-weight: 600; }
 
-  .road-aside { border-top: 3px solid var(--cedar); padding-top: 1.5rem; }
-  .road-aside h4 { font-family: "Inter", sans-serif; font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 600; color: var(--cedar); margin-bottom: 1rem; }
+  .road-aside { border-top: 3px solid var(--sun); padding-top: 1.5rem; }
+  .road-aside h4 { font-family: "Inter", sans-serif; font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 600; color: var(--sun); margin-bottom: 1rem; }
   .road-aside ul { list-style: none; margin: 0; padding: 0; }
-  .road-aside li { padding: 0.7rem 0; border-bottom: 1px solid var(--rule); font-size: 0.94rem; color: var(--ink-soft); line-height: 1.55; }
+  .road-aside li { padding: 0.7rem 0; border-bottom: 1px solid var(--line); font-size: 0.94rem; color: var(--ink-soft); line-height: 1.55; }
   .road-aside li strong { color: var(--ink); font-weight: 600; }
   .essay-grid { display: grid; grid-template-columns: 1.6fr 0.9fr; gap: 4.5rem; align-items: start; }
   @media (max-width: 880px) { .essay-grid { grid-template-columns: 1fr; gap: 3rem; } }
 
   /* ============ LOGBOOK OF THE REC SITES ============ */
-  .logbook { background: var(--paper-deep); }
+  .logbook { background: var(--sage); }
   .log-entry {
     display: grid; grid-template-columns: 110px 1fr 220px; gap: 2.5rem; align-items: start;
-    padding: 2.75rem 0; border-top: 1px solid var(--rule);
+    padding: 2.75rem 0; border-top: 1px solid var(--line);
   }
-  .log-entry:last-of-type { border-bottom: 1px solid var(--rule); }
+  .log-entry:last-of-type { border-bottom: 1px solid var(--line); }
   @media (max-width: 880px) { .log-entry { grid-template-columns: 72px 1fr; } .log-entry .log-art { display: none; } }
   .log-no {
     font-family: "Fraunces", serif; font-weight: 320; font-style: italic;
-    font-size: clamp(2.8rem, 5vw, 4.2rem); line-height: 0.9; color: var(--jade); opacity: 0.85;
+    font-size: clamp(2.8rem, 5vw, 4.2rem); line-height: 0.9; color: var(--sun); opacity: 0.9;
   }
   .log-body h3 { margin-bottom: 0.3rem; }
-  .log-body .log-km { font-family: "Inter", sans-serif; font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 600; color: var(--ink-mute); margin-bottom: 1rem; }
+  .log-body .log-km { font-family: "Inter", sans-serif; font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 600; color: var(--mute); margin-bottom: 1rem; }
   .log-body p { font-size: 1rem; margin-bottom: 0.85rem; }
   .log-body p:last-child { margin-bottom: 0; }
-  .log-tag { display: inline-block; font-size: 0.64rem; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 600; color: var(--cedar); border: 1px solid var(--rule); border-radius: 999px; padding: 0.3rem 0.85rem; margin-right: 0.4rem; margin-top: 0.5rem; background: var(--paper); }
-  .log-art { color: var(--jade-deep); opacity: 0.85; padding-top: 0.4rem; }
+  .log-tag { display: inline-block; font-size: 0.64rem; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 600; color: var(--pine); border: 1.5px solid var(--line); border-radius: 999px; padding: 0.3rem 0.85rem; margin-right: 0.4rem; margin-top: 0.5rem; background: var(--surface); }
+  .log-art { color: var(--pine-deep); opacity: 0.85; padding-top: 0.4rem; }
   .log-art svg { width: 100%; height: auto; }
-  .log-fineprint { margin-top: 2.25rem; font-size: 0.92rem; color: var(--ink-mute); max-width: 66ch; }
+  .log-fineprint { margin-top: 2.25rem; font-size: 0.92rem; color: var(--mute); max-width: 66ch; }
 
   /* ============ ON THE WATER ============ */
-  .water-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border: 1px solid var(--rule); border-radius: 3px; overflow: hidden; background: var(--paper); }
+  .water-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: var(--surface); box-shadow: 0 1px 3px rgba(34,38,31,0.06); }
   @media (max-width: 880px) { .water-grid { grid-template-columns: 1fr; } }
-  .wcell { padding: 2.25rem; border-right: 1px solid var(--rule); }
+  .wcell { padding: 2.25rem; border-right: 1px solid var(--line); }
   .wcell:last-child { border-right: 0; }
-  @media (max-width: 880px) { .wcell { border-right: 0; border-bottom: 1px solid var(--rule); } .wcell:last-child { border-bottom: 0; } }
-  .wcell .wn { font-family: "Fraunces", serif; font-style: italic; color: var(--cedar); font-size: 0.98rem; display: block; margin-bottom: 0.7rem; }
+  @media (max-width: 880px) { .wcell { border-right: 0; border-bottom: 1px solid var(--line); } .wcell:last-child { border-bottom: 0; } }
+  .wcell .wn { font-family: "Fraunces", serif; font-style: italic; color: var(--sun); font-size: 0.98rem; display: block; margin-bottom: 0.7rem; }
   .wcell h3 { font-size: 1.28rem; margin-bottom: 0.85rem; }
   .wcell p { font-size: 0.98rem; margin-bottom: 0; }
   .water-note { margin-top: 2.5rem; max-width: 68ch; }
@@ -263,45 +264,44 @@
 
   /* ============ SEASONS TABLE ============ */
   table.seasons { width: 100%; border-collapse: collapse; font-size: 0.98rem; }
-  table.seasons th { font-family: "Inter", sans-serif; font-size: 0.66rem; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 600; color: var(--ink-mute); text-align: left; padding: 0 1.25rem 0.9rem 0; border-bottom: 1px solid var(--ink-mute); }
-  table.seasons td { padding: 1.2rem 1.25rem 1.2rem 0; border-bottom: 1px solid var(--rule); vertical-align: top; color: var(--ink-soft); line-height: 1.55; }
-  table.seasons td.szn { font-family: "Fraunces", serif; font-style: italic; font-size: 1.12rem; color: var(--jade-deep); white-space: nowrap; }
+  table.seasons th { font-family: "Inter", sans-serif; font-size: 0.66rem; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 600; color: var(--mute); text-align: left; padding: 0 1.25rem 0.9rem 0; border-bottom: 1px solid var(--mute); }
+  table.seasons td { padding: 1.2rem 1.25rem 1.2rem 0; border-bottom: 1px solid var(--line); vertical-align: top; color: var(--ink-soft); line-height: 1.55; }
+  table.seasons td.szn { font-family: "Fraunces", serif; font-style: italic; font-size: 1.12rem; color: var(--pine-deep); white-space: nowrap; }
   .table-scroll { overflow-x: auto; }
 
   /* ============ HONEST NOTE ============ */
-  .honest { background: var(--jade-deep); color: var(--paper); }
-  .honest .eyebrow { color: var(--paper); opacity: 0.85; }
-  .honest .eyebrow::after { background: var(--paper); }
-  .honest h2 { color: var(--paper); }
-  .honest p { color: rgba(246,242,232,0.9); }
+  .honest { background: var(--pine-deep); color: #f2f1ea; }
+  .honest .eyebrow { color: var(--sun); }
+  .honest h2 { color: #fff; }
+  .honest p { color: #cfd4c6; }
   .honest .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 3.5rem; margin-top: 2.5rem; }
   @media (max-width: 820px) { .honest .cols { grid-template-columns: 1fr; gap: 0; } }
   .honest .cols p { font-size: 1rem; }
 
   /* ============ FAQ ============ */
-  details { border-top: 1px solid var(--rule); }
-  details:last-of-type { border-bottom: 1px solid var(--rule); }
+  details { border-top: 1px solid var(--line); }
+  details:last-of-type { border-bottom: 1px solid var(--line); }
   summary {
     cursor: pointer; list-style: none; padding: 1.35rem 2.5rem 1.35rem 0; position: relative;
-    font-family: "Fraunces", serif; font-size: 1.18rem; font-weight: 440; color: var(--ink);
+    font-family: "Fraunces", serif; font-size: 1.18rem; font-weight: 500; color: var(--ink);
   }
   summary::-webkit-details-marker { display: none; }
-  summary::after { content: "+"; position: absolute; right: 0.25rem; top: 50%; transform: translateY(-50%); font-family: "Fraunces", serif; font-weight: 300; font-size: 1.5rem; color: var(--cedar); transition: transform 0.2s; }
+  summary::after { content: "+"; position: absolute; right: 0.25rem; top: 50%; transform: translateY(-50%); font-family: "Fraunces", serif; font-weight: 300; font-size: 1.5rem; color: var(--sun); transition: transform 0.2s; }
   details[open] summary::after { content: "–"; }
   details .a { padding: 0 0 1.6rem; max-width: 62ch; }
   details .a p { font-size: 1rem; margin-bottom: 0.8rem; }
   details .a p:last-child { margin-bottom: 0; }
 
   /* ============ COLOPHON / FOOTER ============ */
-  footer.colophon { border-top: 1px solid var(--rule); background: var(--paper-deep); padding: 4.5rem 0 0; }
+  footer.colophon { border-top: 1px solid var(--line); background: var(--sage); padding: 4.5rem 0 0; }
   .colo-grid { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 3rem; padding-bottom: 3.5rem; }
   @media (max-width: 820px) { .colo-grid { grid-template-columns: 1fr; gap: 2.5rem; } }
-  .colo-grid h4 { font-family: "Inter", sans-serif; font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 600; color: var(--ink-mute); margin-bottom: 1.1rem; }
+  .colo-grid h4 { font-family: "Inter", sans-serif; font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 600; color: var(--mute); margin-bottom: 1.1rem; }
   .colo-grid ul { list-style: none; margin: 0; padding: 0; }
   .colo-grid li { margin-bottom: 0.55rem; font-size: 0.93rem; color: var(--ink-soft); }
   .colo-grid li a { border: none; }
   .colo-grid .about { font-family: "Fraunces", serif; font-style: italic; font-weight: 340; font-size: 1.05rem; line-height: 1.55; color: var(--ink); max-width: 34ch; }
-  .baseline { border-top: 1px solid var(--rule); padding: 1.9rem 0; font-size: 0.78rem; color: var(--ink-mute); }
+  .baseline { border-top: 1px solid var(--line); padding: 1.9rem 0; font-size: 0.78rem; color: var(--mute); }
   .baseline .inner { display: flex; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; }
   .baseline em { font-family: "Fraunces", serif; }
 </style>
@@ -312,11 +312,7 @@
 <nav class="top">
   <div class="inner">
     <a href="#" class="wordmark">
-      <svg width="30" height="30" viewBox="0 0 30 30" fill="none" aria-hidden="true">
-        <!-- braided channels into a lake -->
-        <path d="M6 3 Q10 8 9 12 M12 3 Q11 8 13 12 M18 3 Q19 8 17 12 M24 3 Q21 8 21 12" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
-        <path d="M4 17 Q15 13 26 17 L26 24 Q15 28 4 24 Z" fill="currentColor" opacity="0.85"/>
-      </svg>
+      <span class="peak"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 18 L9 8 L12 12 L16 5 L21 18"/></svg></span>
       <span>
         Lillooet Lake
         <small>A field logbook · Pemberton BC</small>
@@ -342,8 +338,8 @@
         <stop offset="1" stop-color="#2c6b5c"/>
       </linearGradient>
       <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0" stop-color="#f6f2e8"/>
-        <stop offset="1" stop-color="#ece5d3"/>
+        <stop offset="0" stop-color="#fbfaf7"/>
+        <stop offset="1" stop-color="#eef1ea"/>
       </linearGradient>
     </defs>
     <!-- sky -->
@@ -352,8 +348,8 @@
     <path d="M0 178 L110 96 L188 152 L262 84 L338 148 L420 108 L500 166 L580 122 L660 172 L740 178 L0 178 Z" fill="#b9c0b6" opacity="0.7"/>
     <path d="M620 176 L720 104 L802 158 L880 92 L968 150 L1050 118 L1140 168 L1240 128 L1330 170 L1440 140 L1440 200 L620 200 Z" fill="#b9c0b6" opacity="0.55"/>
     <!-- snow patches on the far peaks -->
-    <path d="M254 92 L262 84 L272 94 L262 100 Z" fill="#f6f2e8" opacity="0.9"/>
-    <path d="M872 100 L880 92 L892 102 L880 108 Z" fill="#f6f2e8" opacity="0.9"/>
+    <path d="M254 92 L262 84 L272 94 L262 100 Z" fill="#fbfaf7" opacity="0.9"/>
+    <path d="M872 100 L880 92 L892 102 L880 108 Z" fill="#fbfaf7" opacity="0.9"/>
     <!-- mid ridge, darker silt-jade -->
     <path d="M0 226 L90 186 L200 224 L320 182 L430 226 L560 190 L690 230 L840 194 L980 232 L1130 198 L1270 234 L1380 208 L1440 226 L1440 260 L0 260 Z" fill="#8ea092" opacity="0.75"/>
     <!-- forested lower slope, cedar-dark -->
@@ -376,15 +372,15 @@
     <path d="M240 336 Q420 330 560 356 Q460 380 340 388 Q260 392 150 410 Q220 380 240 336 Z" fill="#8fbcaa" opacity="0.5"/>
     <path d="M300 350 Q460 352 560 372 Q470 390 380 396 Q320 398 260 406 Q290 380 300 350 Z" fill="#a9cdbc" opacity="0.35"/>
     <!-- calm-water sheen lines -->
-    <g stroke="#f6f2e8" stroke-width="1.6" stroke-linecap="round" opacity="0.28">
+    <g stroke="#fbfaf7" stroke-width="1.6" stroke-linecap="round" opacity="0.28">
       <path d="M660 348 H900"/><path d="M760 372 H1060"/><path d="M980 352 H1180"/>
       <path d="M860 398 H1120"/><path d="M1180 384 H1400"/><path d="M700 412 H920"/>
     </g>
     <!-- lone canoe, small, morning water -->
     <g transform="translate(1010 356)">
       <path d="M0 8 Q22 16 44 8 Q34 13 22 13 Q10 13 0 8 Z" fill="#6f4526"/>
-      <path d="M20 8 L20 -1 M20 -1 L27 6" stroke="#21201a" stroke-width="1.6" stroke-linecap="round" fill="none"/>
-      <circle cx="20" cy="-4" r="2.4" fill="#21201a"/>
+      <path d="M20 8 L20 -1 M20 -1 L27 6" stroke="#22261f" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+      <circle cx="20" cy="-4" r="2.4" fill="#22261f"/>
     </g>
     <!-- gravel road hint hugging the east shore, right side -->
     <path d="M1440 300 L1310 306 Q1240 310 1200 322 Q1260 320 1330 316 L1440 312 Z" fill="#c9c3ae" opacity="0.75"/>
@@ -395,8 +391,8 @@
 <section class="photo-feature" style="padding:3.5rem 0 0;">
   <div class="wrap">
     <figure style="margin:0;">
-      <div role="img" aria-label="Driftwood-strewn gravel beach at the head of Lillooet Lake in winter, the milky green water reaching down-valley between forested slopes and snow-dusted peaks" style="background:url('https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Winter_beach_time_%2850825961033%29.jpg/1280px-Winter_beach_time_%2850825961033%29.jpg') center/cover no-repeat; aspect-ratio:16/9; border-radius:6px; border:1px solid var(--rule);"></div>
-      <figcaption style="font-family:'Fraunces',serif; font-style:italic; font-size:0.85rem; color:var(--ink-mute, #7a7268); margin-top:0.6rem;">Winter beach at the head of the lake, jade water down-valley. Photo &mdash; VinceTraveller (CC BY 2.0), via Wikimedia Commons.</figcaption>
+      <div role="img" aria-label="Driftwood-strewn gravel beach at the head of Lillooet Lake in winter, the milky green water reaching down-valley between forested slopes and snow-dusted peaks" style="background:url('https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Winter_beach_time_%2850825961033%29.jpg/1280px-Winter_beach_time_%2850825961033%29.jpg') center/cover no-repeat; aspect-ratio:16/9; border-radius:14px; border:1px solid var(--line); box-shadow:0 1px 3px rgba(34,38,31,0.06);"></div>
+      <figcaption style="font-family:'Fraunces',serif; font-style:italic; font-size:0.85rem; color:var(--mute); margin-top:0.6rem;">Winter beach at the head of the lake, jade water down-valley. Photo &mdash; VinceTraveller (CC BY 2.0), via Wikimedia Commons.</figcaption>
     </figure>
   </div>
 </section>
